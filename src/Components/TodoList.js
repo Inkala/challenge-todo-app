@@ -63,7 +63,27 @@ class TodoList extends Component {
   
   handleEdit = event => {
     event.preventDefault();
-    console.log("Handle edit");
+    const { title, body, todos, editId } = this.state;
+    const updatedTodo = { title, body };
+    todoService
+      .updateTodo(editId, updatedTodo)
+      .then(res => {
+        const updatedTodos = todos.map(todo => {
+          if (todo._id === res.data._id) {
+            return res.data;
+          }
+          return todo;
+        });
+        this.setState({
+          title: '',
+          body: '',
+          todos: updatedTodos,
+          editing: false
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
 

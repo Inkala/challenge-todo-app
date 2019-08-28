@@ -23,13 +23,12 @@ npm start
 
 ### Success
 The front end is connected to the backend.
-The user can create and delete todos
+The user can create, edit and delete todos
 
 ### Challenges
 Short time
 
 ### What to improve
-- Was not able to implement the delete functionality due to lack of time
 - Add confirmation when deleting message
 
 ### Additional notes
